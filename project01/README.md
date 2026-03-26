@@ -1,33 +1,126 @@
-The goal for this project is to create a robust Nginx Service Monitor. This script won't just check if Nginx is running; it will attempt to fix it if it’s down and log the entire event for a "production" audit trail.
+# Nginx Service Monitor and Auto-Healer
 
-🛠️ Project : The Nginx Auto-Healer
+This project provides a production-style Bash monitor for Nginx on Linux hosts that use systemd. The script checks service health, attempts recovery when Nginx is down, and writes an audit-friendly log trail.
 
-1. The Logic Flow
-Before you write a single line of code, visualize the "if-then" logic. In DevOps, we want scripts that are idempotent (they don't cause problems if run multiple times) and verbose (they tell us exactly what happened).
+## Project Objective
 
-2. Implementation Steps
-Create a file named monitor_nginx.sh and follow this structure:
+Build a robust and idempotent Nginx monitoring script that:
 
-Define Variables: Store the service name (nginx), the log file path (/var/log/nginx_monitor.log), and the timestamp format.
+1. Checks whether Nginx is active.
+2. Restarts Nginx automatically if it is down.
+3. Verifies whether restart was successful.
+4. Logs every important event for operations auditing.
+5. Emits a visible alert block when an auto-restart is triggered.
 
-The Check: Use systemctl is-active --quiet $SERVICE. This command is perfect for scripts because it doesn't output text—it only sets an Exit Code ($?).
+## File Structure
 
-The Conditional ($?): * If $? is 0, the service is fine. Log "Nginx is running" and exit.
+1. [project01/monitor_nginx.sh](project01/monitor_nginx.sh): Main monitoring and auto-healing script.
+2. [project01/README.md](project01/README.md): Project documentation.
 
-If $? is NOT 0, the service is down.
+## How It Works
 
-The Recovery: Attempt systemctl restart $SERVICE.
+The script flow is:
 
-Verification: Check the status one more time after the restart to see if it worked. Log the final success or failure.
+1. Validate the script is run as root or via sudo.
+2. Check Nginx status with systemctl is-active --quiet.
+3. If active:
+1. Print healthy message.
+2. Write success log entry.
+3. Exit with status code 0.
+4. If inactive:
+1. Log downtime event.
+2. Print a colored alert block.
+3. Attempt systemctl restart nginx.
+4. Re-check service state.
+5. Log final success or critical failure.
 
-3. Production-Grade Refinement
-To make this "DevOps-ready," apply these three layers:
+## Features
 
-Permissions Check: Add a block at the top to ensure the script is running with sudo or as root. If not, exit with a helpful error message.
+1. Idempotent behavior: Safe to run repeatedly.
+2. Timestamped logging for traceability.
+3. Clear console output with ANSI colors.
+4. Root permission enforcement.
+5. Recovery verification after restart attempt.
 
-Shebang & Set Flags: Start with #!/bin/bash. Add set -e if you want the script to fail fast on errors, or handle them manually for more control.
+## Configuration
 
-The Linter (ShellCheck): Run your script through ShellCheck. It will likely catch issues like missing quotes around variables (e.g., "$SERVICE" vs $SERVICE), which prevents word splitting.
+Inside [project01/monitor_nginx.sh](project01/monitor_nginx.sh), key variables are:
 
-🚀 Challenge: Add a "Slack/Discord" Mockup
-Once the basic script works, try adding a function that sends a "notification." Since we aren't setting up webhooks yet, just have the script output a specific "ALERT" block to the console in a different color (using ANSI escape codes) whenever a restart is triggered.
+1. SERVICE="nginx"
+2. LOG_FILE="/var/log/nginx_monitor.log"
+3. TIME_FORMAT="+%Y-%m-%d %H:%M:%S"
+
+## Requirements
+
+1. Linux with systemd.
+2. Nginx installed and managed by systemctl.
+3. Sudo or root access.
+
+## Usage
+
+From [project01](project01):
+
+1. Make executable:
+
+	chmod +x monitor_nginx.sh
+
+2. Run with sudo:
+
+	sudo ./monitor_nginx.sh
+
+## Log Location
+
+The script writes audit logs to:
+
+1. /var/log/nginx_monitor.log
+
+View recent logs:
+
+1. sudo tail -n 50 /var/log/nginx_monitor.log
+
+Watch logs live:
+
+1. sudo tail -f /var/log/nginx_monitor.log
+
+## Expected Outputs
+
+Healthy case:
+
+1. Console: Nginx is running fine.
+2. Log: Nginx is running.
+
+Recovery case:
+
+1. Console: Nginx is DOWN. Attempting restart...
+2. Console: ALERT block is printed.
+3. Log: Nginx was down. Attempting restart.
+4. Log: Nginx restarted successfully. or CRITICAL failure entry.
+
+## Common Troubleshooting
+
+1. Message: Unit nginx.service not found
+1. Cause: Nginx is not installed on this host.
+2. Fix:
+1. sudo apt update
+2. sudo apt install -y nginx
+3. sudo systemctl enable --now nginx
+
+2. No visible logs in terminal
+1. Reason: log_message writes to file, not directly to console.
+2. Check file with sudo tail commands above.
+
+3. Permission denied for log file
+1. Run the script with sudo.
+
+## Optional Production Improvement Ideas
+
+1. Add service existence pre-check before restart attempts.
+2. Add lock file to prevent overlapping executions.
+3. Add automatic log rotation policy.
+4. Replace mock alert with real webhook integration.
+5. Run by systemd timer or cron every minute.
+
+## Author
+
+1. nashokota
+2. preom.cc.bd@gmail.com
