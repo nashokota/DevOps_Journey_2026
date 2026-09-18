@@ -141,7 +141,7 @@ Showcase your skills and prepare for real-world roles.
 
 ### Project Showcase:
 
-* **[Project 01: Nginx Service Monitor & Auto-Healer](./project01)**
+* **[Project 01: Nginx Service Monitor & Auto-Healer](https://github.com/nashokota/DevOps_Journey_2026/tree/project01)**
 * **[Project 02: Vprofile Project using NM(nginx,tomcat,sql,memcache,rabbitmq)](https://github.com/nashokota/DevOps_Journey_2026/tree/vprofile-project)**
 * **[Project 03: DOCKER inside the VM to run vprofile project](https://github.com/nashokota/DevOps_Journey_2026/tree/Docker)**
 * **[Project 04: E-MART Microservices Web Application (Docker Compose, Kubernetes & Jenkins CI/CD)](https://github.com/nashokota/DevOps_Journey_2026/tree/Docker-Microservices)**
