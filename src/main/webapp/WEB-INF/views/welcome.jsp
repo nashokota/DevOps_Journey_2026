@@ -12,6 +12,7 @@
     <title>Welcome</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/bootstrap.min.css">
     <link href="${contextPath}/resources/css/profile.css" rel="stylesheet">
+	<link rel="stylesheet" href="${contextPath}/resources/css/professional.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>

@@ -31,6 +31,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/util.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/main.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/professional.css">
     <style>
         /* Navbar Styling */
         .navbar-custom {

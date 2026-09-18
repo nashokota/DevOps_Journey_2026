@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>RabbitMQ</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/professional.css">
     <style>
         body {
             font-family: Arial, sans-serif;

@@ -10,6 +10,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>vp-elasticsearch</title>
+<link rel="stylesheet" href="${contextPath}/resources/css/professional.css">
 </head>
 <body>
 <h1>Data  is ${result} into Elasticsearch</h1>

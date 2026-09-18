@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Not Found</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/professional.css">
     <style>
         body {
             font-family: Arial, sans-serif;

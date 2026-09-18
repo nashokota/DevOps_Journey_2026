@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/vendor/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/util.css">
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/main.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/professional.css">
     <style>
         .navbar-custom {
             background: rgba(0, 0, 0, 0); /* Fully transparent */
