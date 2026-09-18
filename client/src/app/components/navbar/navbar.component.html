@@ -1,0 +1,109 @@
+<header class="emart-navbar-wrapper sticky-top">
+  <nav class="navbar navbar-expand-lg emart-navbar">
+    <div class="container-fluid px-lg-4">
+      
+      <!-- Brand Logo -->
+      <a class="navbar-brand d-flex align-items-center" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <div class="brand-icon-box mr-2">
+          <i class="fa fa-shopping-bag text-white"></i>
+        </div>
+        <div class="brand-text-group">
+          <span class="brand-title">E<span class="brand-accent">-MART</span></span>
+          <span class="brand-badge">2.0 NEXTGEN</span>
+        </div>
+      </a>
+
+      <!-- Spinner if loading -->
+      <div *ngIf="isLoading" class="spinner-border spinner-border-sm text-primary ml-2" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+
+      <!-- Mobile Toggler -->
+      <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav" aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"><i class="fa fa-bars text-white"></i></span>
+      </button>
+
+      <!-- Collapsible Nav Items -->
+      <div class="collapse navbar-collapse" id="mobile-nav">
+        <!-- Main Links -->
+        <ul class="navbar-nav mr-auto align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link nav-pill-link" routerLink="/" routerLinkActive="active-pill" [routerLinkActiveOptions]="{exact: true}">
+              <i class="fa fa-compass mr-1"></i> Explore
+            </a>
+          </li>
+          
+          <li *ngIf="authService.loggedIn()" class="nav-item">
+            <a class="nav-link nav-pill-link shop-highlight" routerLink="/dashboard" routerLinkActive="active-pill">
+              <i class="fa fa-shopping-cart mr-1"></i> Store Catalog
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link nav-pill-link book-highlight" routerLink="/book" routerLinkActive="active-pill">
+              <i class="fa fa-book mr-1"></i> BooksMart
+              <span class="badge badge-java ml-1">Spring API</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Right Side: Contact, Auth & User Info -->
+        <ul class="navbar-nav ml-auto align-items-lg-center">
+          
+          <!-- Hotline Pill -->
+          <li class="nav-item d-none d-xl-block mr-2">
+            <span class="contact-pill">
+              <i class="fa fa-phone text-accent mr-1"></i>
+              <span class="contact-text">1800-00-66-66</span>
+            </span>
+          </li>
+
+          <!-- Email Pill -->
+          <li class="nav-item d-none d-lg-block mr-3">
+            <a href="mailto:info@emart.com" class="contact-pill">
+              <i class="fa fa-envelope text-accent mr-1"></i>
+              <span class="contact-text">info@emart.com</span>
+            </a>
+          </li>
+
+          <!-- Auth Actions (Logged Out) -->
+          <ng-container *ngIf="!authService.loggedIn()">
+            <li class="nav-item my-1 my-lg-0 mr-lg-2">
+              <a class="btn btn-outline-light btn-sm px-3 nav-auth-btn" routerLink="/login" routerLinkActive="active">
+                <i class="fa fa-sign-in mr-1"></i> Login
+              </a>
+            </li>
+            <li class="nav-item my-1 my-lg-0">
+              <a class="btn btn-primary btn-sm px-3 nav-auth-btn register-gradient" routerLink="/register" routerLinkActive="active">
+                <i class="fa fa-user-plus mr-1"></i> Register
+              </a>
+            </li>
+          </ng-container>
+
+          <!-- Auth Actions (Logged In) -->
+          <ng-container *ngIf="authService.loggedIn()">
+            <li class="nav-item mr-lg-2 my-1 my-lg-0">
+              <div class="user-greeting-pill">
+                <span class="user-avatar-initial">{{ user?.fname ? (user.fname | slice:0:1 | uppercase) : 'U' }}</span>
+                <span class="user-name">Hi, {{ user?.fname ? user.fname : 'Customer' }}</span>
+                <span *ngIf="user?.role" class="badge badge-warning ml-1">Admin</span>
+              </div>
+            </li>
+            <li class="nav-item my-1 my-lg-0 mr-lg-2">
+              <a class="btn btn-sm btn-outline-primary" routerLink="/dashboard">
+                <i class="fa fa-th-large mr-1"></i> Dashboard
+              </a>
+            </li>
+            <li class="nav-item my-1 my-lg-0">
+              <button (click)="logout()" class="btn btn-sm btn-dark nav-logout-btn">
+                <i class="fa fa-sign-out mr-1"></i> Logout
+              </button>
+            </li>
+          </ng-container>
+
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+</header>

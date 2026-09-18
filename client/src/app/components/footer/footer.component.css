@@ -1,0 +1,153 @@
+.emart-footer {
+  background: #080c14;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.footer-top-guarantees {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(15, 23, 42, 0.4);
+}
+
+.guarantee-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: left;
+}
+
+.guarantee-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #818cf8;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.guarantee-text h6 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.guarantee-text p {
+  margin: 0;
+  font-size: 0.775rem;
+  color: #64748b;
+}
+
+.footer-brand .brand-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.footer-brand .brand-accent {
+  color: #818cf8;
+}
+
+.footer-brand .brand-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #06b6d4;
+  letter-spacing: 0.08em;
+}
+
+.footer-desc {
+  line-height: 1.6;
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.footer-heading {
+  color: #f8fafc;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.65rem;
+}
+
+.footer-links a {
+  color: #94a3b8;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.footer-contact-item {
+  margin-bottom: 0.5rem;
+  color: #cbd5e1;
+}
+
+.infra-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  color: #34d399;
+}
+
+.infra-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  margin-right: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.social-icon:hover {
+  background: #6366f1;
+  color: #ffffff;
+  border-color: #6366f1;
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  background: rgba(0, 0, 0, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 0.825rem;
+  color: #64748b;
+}
