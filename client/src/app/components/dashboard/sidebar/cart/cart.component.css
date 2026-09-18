@@ -1,0 +1,47 @@
+.cart-container {
+  font-size: 0.9rem;
+}
+
+.empty-cart-alert {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.cart-items-scroll {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.cart-item-row {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.2s ease;
+}
+
+.cart-item-row:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.remove-btn {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.remove-btn:hover {
+  background: rgba(239, 68, 68, 0.2) !important;
+}
+
+.cart-summary-box {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.total-amount {
+  font-family: 'Outfit', sans-serif;
+  color: #10b981 !important;
+}

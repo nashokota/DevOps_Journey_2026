@@ -1,0 +1,364 @@
+.emart-landing {
+  min-height: 100vh;
+  padding-bottom: 3rem;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  padding: 3.5rem 0;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 9999px;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #6366f1;
+  box-shadow: 0 0 10px #6366f1;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.badge-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #a5b4fc;
+}
+
+.hero-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: #94a3b8;
+  max-width: 600px;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.shadow-glow {
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4) !important;
+}
+
+/* Stat Cards */
+.stat-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 1rem;
+  backdrop-filter: blur(8px);
+}
+
+.stat-number {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.stat-label {
+  font-size: 0.775rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Hero Carousel */
+.hero-carousel-card {
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.banner-img {
+  height: 380px;
+  object-fit: cover;
+  filter: brightness(0.9);
+  transition: transform 0.4s ease;
+}
+
+.carousel-item:hover .banner-img {
+  transform: scale(1.02);
+}
+
+.carousel-caption {
+  background: rgba(9, 13, 22, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 1rem 1.5rem;
+  bottom: 2rem;
+  left: 10%;
+  right: 10%;
+  text-align: left;
+}
+
+.carousel-caption h5 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0.25rem 0 0;
+  color: #ffffff;
+}
+
+.carousel-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #06b6d4;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.carousel-nav-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.carousel-nav-btn:hover {
+  background: #6366f1;
+}
+
+.custom-indicators li {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 4px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.custom-indicators li.active {
+  background-color: #6366f1;
+  width: 24px;
+  border-radius: 9999px;
+}
+
+/* User Session Banner */
+.user-session-banner {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(6, 182, 212, 0.06) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 16px;
+}
+
+/* Section Headers */
+.section-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #818cf8;
+  letter-spacing: 0.08em;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-top: 0.2rem;
+  color: #ffffff;
+}
+
+.view-all-link {
+  color: #818cf8;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.view-all-link:hover {
+  color: #ffffff;
+}
+
+/* Deal Cards */
+.deal-card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.deal-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+.deal-badge-pill {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.deal-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.deal-subtitle {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+.deal-thumb-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 0.5rem;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.deal-img {
+  max-height: 80px;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.deal-card:hover .deal-img {
+  transform: scale(1.1);
+}
+
+.deal-expiry {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* Product Cards */
+.product-item-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.product-item-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+.product-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  z-index: 2;
+}
+
+.product-img-wrapper {
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.product-img {
+  max-height: 160px;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.product-item-card:hover .product-img {
+  transform: scale(1.08);
+}
+
+.product-cat {
+  font-size: 0.725rem;
+  color: #818cf8;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.product-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.25rem 0;
+  color: #f1f5f9;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-name:hover {
+  color: #818cf8;
+}
+
+.product-stars {
+  font-size: 0.75rem;
+}
+
+.stars-count {
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+
+.price-current {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #10b981;
+}
+
+.price-original {
+  font-size: 0.85rem;
+  color: #64748b;
+  text-decoration: line-through;
+}
+
+.product-btn-group .btn {
+  font-size: 0.8rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+}

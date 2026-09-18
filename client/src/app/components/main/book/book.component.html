@@ -1,0 +1,186 @@
+<div class="booksmart-wrapper py-4 px-lg-5">
+  
+  <!-- HERO BANNER -->
+  <div class="booksmart-hero glass-panel p-4 p-lg-5 mb-4 text-center text-lg-left">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <div class="d-inline-flex align-items-center gap-2 mb-2">
+          <span class="badge badge-info"><i class="fa fa-server mr-1"></i> Java Spring Boot Microservice</span>
+          <span class="badge badge-success"><i class="fa fa-database mr-1"></i> MySQL Database</span>
+        </div>
+        <h1 class="text-white font-weight-bold mb-2">BooksMart Digital Library</h1>
+        <p class="text-muted mb-4 max-w-600">
+          Explore our extensive catalog of literature, educational publications, and technical books synced directly from the enterprise Java REST API.
+        </p>
+
+        <!-- Navigation Action Pills -->
+        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2">
+          <button
+            (click)="abc()"
+            class="btn btn-sm"
+            [ngClass]="displayAllBooks ? 'btn-primary shadow-glow' : 'btn-outline-primary'"
+          >
+            <i class="fa fa-book mr-1"></i> All Books Catalog
+          </button>
+
+          <button
+            (click)="displayAllPublishedBooks()"
+            class="btn btn-sm"
+            [ngClass]="displayPublishedBooks ? 'btn-success shadow-glow' : 'btn-outline-success'"
+          >
+            <i class="fa fa-check-circle mr-1"></i> Published Titles
+          </button>
+
+          <button
+            (click)="addBookFlag()"
+            class="btn btn-sm"
+            [ngClass]="displayAddBookForm ? 'btn-warning shadow-glow' : 'btn-outline-warning'"
+          >
+            <i class="fa fa-plus-circle mr-1"></i> Add New Book
+          </button>
+        </div>
+      </div>
+
+      <div class="col-lg-4 text-center mt-4 mt-lg-0 d-none d-lg-block">
+        <div class="book-hero-icon-box mx-auto">
+          <i class="fa fa-book fa-4x text-accent"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD BOOK FORM (COLLAPSIBLE / TOGGLEABLE) -->
+  <div *ngIf="displayAddBookForm" class="add-book-section mb-4">
+    <div class="card glass-panel p-4 max-w-700 mx-auto">
+      <div class="d-flex align-items-center mb-3">
+        <div class="icon-bubble mr-2 bg-warning">
+          <i class="fa fa-plus text-dark"></i>
+        </div>
+        <div>
+          <h5 class="text-white font-weight-bold mb-0">Submit New Book to Catalog</h5>
+          <span class="text-muted small">Sends POST payload to /webapi/books</span>
+        </div>
+      </div>
+
+      <form role="form">
+        <div class="form-group mb-3">
+          <label class="small text-muted mb-1" for="bookTitle">Book Title:</label>
+          <div class="input-icon-wrapper">
+            <i class="fa fa-bookmark input-icon"></i>
+            <input type="text" class="form-control pl-5" id="bookTitle" placeholder="Enter book title" #title required>
+          </div>
+        </div>
+
+        <div class="form-row mb-3">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <label class="small text-muted mb-1" for="bookAuthor">Author:</label>
+            <div class="input-icon-wrapper">
+              <i class="fa fa-pencil input-icon"></i>
+              <input type="text" class="form-control pl-5" id="bookAuthor" placeholder="Author name" #author required>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="small text-muted mb-1" for="bookPublisher">Publisher:</label>
+            <div class="input-icon-wrapper">
+              <i class="fa fa-building-o input-icon"></i>
+              <input type="text" class="form-control pl-5" id="bookPublisher" placeholder="Publishing house" #publisher required>
+            </div>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          (click)="addBook(title, author, publisher)"
+          class="btn btn-primary btn-block shadow-glow font-weight-bold"
+        >
+          <i class="fa fa-cloud-upload mr-1"></i> Submit to Java Database
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ALL BOOKS SECTION -->
+  <div *ngIf="displayAllBooks" class="books-display-section mb-5">
+    <div class="section-header d-flex justify-content-between align-items-center mb-3">
+      <h4 class="text-white font-weight-bold mb-0">
+        <i class="fa fa-list mr-2 text-primary"></i> All Books Repository
+      </h4>
+      <span class="badge badge-dark">Live MySQL Data</span>
+    </div>
+
+    <div *ngIf="!books || books.length == 0" class="text-center glass-panel p-4 my-3">
+      <p class="text-muted mb-0">No books found or loading records from server...</p>
+    </div>
+
+    <div class="row" *ngIf="books && books.length > 0">
+      <div class="col-lg-4 col-md-6 mb-4" *ngFor="let b of books">
+        <div class="book-card glass-panel p-3 h-100">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <div class="book-icon-badge">
+              <i class="fa fa-book text-accent"></i>
+            </div>
+            <span class="badge" [ngClass]="b.published ? 'badge-success' : 'badge-dark'">
+              {{ b.published ? 'Published' : 'Draft' }}
+            </span>
+          </div>
+
+          <h5 class="book-title text-white font-weight-bold mb-2">{{ b.title }}</h5>
+          
+          <div class="book-meta-list small text-muted mb-3">
+            <div><i class="fa fa-user-circle mr-1 text-primary"></i> Author: <strong class="text-white">{{ b.author }}</strong></div>
+            <div><i class="fa fa-building-o mr-1 text-primary"></i> Publisher: <span class="text-white-50">{{ b.publisher }}</span></div>
+          </div>
+
+          <div class="mt-auto pt-2 border-top border-secondary d-flex justify-content-between align-items-center">
+            <span class="text-success small font-weight-bold">Available in BooksMart</span>
+            <span class="text-muted small">Status: Active</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PUBLISHED BOOKS SECTION -->
+  <div *ngIf="displayPublishedBooks" class="published-books-section mb-5">
+    <div class="section-header d-flex justify-content-between align-items-center mb-3">
+      <h4 class="text-white font-weight-bold mb-0">
+        <i class="fa fa-check-circle mr-2 text-success"></i> Published Books Collection
+      </h4>
+      <span class="badge badge-success">Verified Catalog</span>
+    </div>
+
+    <div *ngIf="!books_p || books_p.length == 0" class="text-center glass-panel p-4 my-3">
+      <p class="text-muted mb-0">No published books found or loading from microservice...</p>
+    </div>
+
+    <div class="row" *ngIf="books_p && books_p.length > 0">
+      <div class="col-lg-4 col-md-6 mb-4" *ngFor="let b of books_p">
+        <div class="book-card glass-panel p-3 h-100">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <div class="book-icon-badge">
+              <i class="fa fa-bookmark text-success"></i>
+            </div>
+            <span class="badge badge-success">Verified Published</span>
+          </div>
+
+          <h5 class="book-title text-white font-weight-bold mb-2">{{ b.title }}</h5>
+          
+          <div class="book-meta-list small text-muted mb-2">
+            <div><i class="fa fa-user-circle mr-1 text-accent"></i> Author: <strong class="text-white">{{ b.author }}</strong></div>
+            <div><i class="fa fa-building-o mr-1 text-accent"></i> Publisher: <span class="text-white-50">{{ b.publisher }}</span></div>
+          </div>
+
+          <p class="book-desc small text-muted mb-3" *ngIf="b.description">
+            {{ b.description }}
+          </p>
+
+          <div class="mt-auto pt-2 border-top border-secondary d-flex justify-content-between align-items-center">
+            <span class="text-success small font-weight-bold"><i class="fa fa-check mr-1"></i> Ready for Delivery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

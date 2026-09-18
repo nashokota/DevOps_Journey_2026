@@ -141,9 +141,8 @@ Showcase your skills and prepare for real-world roles.
 
 ### Project Showcase:
 
-*
-*
-*
+* **[Project 01: Nginx Service Monitor & Auto-Healer](./project01)**
+* **[Project 02: E-MART Microservices Web Application (Docker Compose, Kubernetes & Jenkins CI/CD)](./docker-compose.yaml)**
 
 <p align="center">
 <strong>My journey begins from 26,March,2026</strong>
