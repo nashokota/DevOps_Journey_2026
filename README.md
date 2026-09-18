@@ -486,5 +486,5 @@ vagrant destroy -f
 ---
 
 <p align="center">
-  Built with ❤️ for DevOps Engineers & Cloud Architects.
+  AL - MUBTASIM PREOM #DEVOPS_JOURNEY_2026
 </p>
