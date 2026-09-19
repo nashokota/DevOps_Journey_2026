@@ -87,15 +87,15 @@ flowchart TD
 .
 ├── project01/
 │   ├── monitor_nginx.sh     # Primary monitoring and auto-healing bash script
-│   └── README.md            # Subdirectory project documentation
-└── README.md                # Root project documentation (this file)
+│   └── README.md            # Subdirectory project documentation (this file)
+└── README.md                # Root project documentation
 ```
 
 ---
 
 ## ⚙️ Script Configuration
 
-The script parameters are defined cleanly at the top of [`project01/monitor_nginx.sh`](./project01/monitor_nginx.sh):
+The script parameters are defined cleanly at the top of [`monitor_nginx.sh`](./monitor_nginx.sh):
 
 | Variable | Default Value | Description |
 | :--- | :--- | :--- |
@@ -128,12 +128,12 @@ sudo dnf install -y nginx
 
 ### 1. Make the Script Executable
 ```bash
-chmod +x project01/monitor_nginx.sh
+chmod +x monitor_nginx.sh
 ```
 
 ### 2. Run the Script
 ```bash
-sudo ./project01/monitor_nginx.sh
+sudo ./monitor_nginx.sh
 ```
 
 **Expected Console Output (When Nginx is healthy):**
@@ -156,7 +156,7 @@ sudo systemctl stop nginx
 ### Step 2: Trigger the Monitor
 Run the monitoring script:
 ```bash
-sudo ./project01/monitor_nginx.sh
+sudo ./monitor_nginx.sh
 ```
 
 **Observed Output:**
@@ -227,7 +227,7 @@ Add the following line (adjust path to where you placed the script):
 
 1. Copy the script to a system path:
    ```bash
-   sudo cp project01/monitor_nginx.sh /usr/local/bin/monitor_nginx.sh
+   sudo cp monitor_nginx.sh /usr/local/bin/monitor_nginx.sh
    sudo chmod +x /usr/local/bin/monitor_nginx.sh
    ```
 
